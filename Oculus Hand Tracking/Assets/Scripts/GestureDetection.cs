@@ -19,10 +19,12 @@ public class GestureDetection : MonoBehaviour
     public List<Gesture> gestures;
     public bool waitForBones = true;
 
+    public GameObject rock, paper, scissors;
+    public GameObject objSpawnLoc;
+
     private List<OVRBone> fingerBones;
     private Gesture previousGesture;
 
-    // Start is called before the first frame update
     void Start()
     {
         //fingerBones = new List<OVRBone>(skeleton.Bones);
@@ -41,7 +43,6 @@ public class GestureDetection : MonoBehaviour
         //Debug.LogError(fingerBones.Count);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -58,6 +59,16 @@ public class GestureDetection : MonoBehaviour
             if (hasRecognized && !currentGesture.Equals(previousGesture))
             {
                 Debug.LogWarning("Gesture Found: " + currentGesture.name);
+
+                if (currentGesture.Equals(gestures[0]))
+                    Instantiate(rock, objSpawnLoc.transform);
+
+                else if (currentGesture.Equals(gestures[1]))
+                    Instantiate(paper, objSpawnLoc.transform);
+
+                else if (currentGesture.Equals(gestures[2]))
+                    Instantiate(scissors, objSpawnLoc.transform);
+
                 previousGesture = currentGesture;
                 currentGesture.onRecognized.Invoke();
             }
