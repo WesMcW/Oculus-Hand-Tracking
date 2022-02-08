@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44986278, g: 0.4999283, b: 0.57558084, a: 1}
+  m_IndirectSpecularColor: {r: 0.4498633, g: 0.49992865, b: 0.57558155, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -580,6 +580,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 137619227449585070, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f92ce6a2e9e04e458f46e6a635b1d62, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
 --- !u!1 &889021538
@@ -688,6 +692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944903280}
   - component: {fileID: 944903279}
+  - component: {fileID: 944903281}
   m_Layer: 0
   m_Name: Gesture Detector
   m_TagString: Untagged
@@ -738,7 +743,19 @@ MonoBehaviour:
     - {x: -0.055902984, y: -0.022158487, z: 0.019137528}
     onRecognized:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 944903281}
+          m_TargetAssemblyTypeName: ObjectSpawner, Assembly-CSharp
+          m_MethodName: SpawnRock
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: Paper
     fingerData:
     - {x: 0, y: 0, z: 0}
@@ -767,7 +784,19 @@ MonoBehaviour:
     - {x: -0.14687149, y: -0.020683834, z: 0.05474948}
     onRecognized:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 944903281}
+          m_TargetAssemblyTypeName: ObjectSpawner, Assembly-CSharp
+          m_MethodName: SpawnPaper
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: Scissors
     fingerData:
     - {x: 0, y: 0, z: 0}
@@ -796,12 +825,20 @@ MonoBehaviour:
     - {x: -0.06350562, y: -0.04762202, z: 0.011957578}
     onRecognized:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 944903281}
+          m_TargetAssemblyTypeName: ObjectSpawner, Assembly-CSharp
+          m_MethodName: SpawnScissors
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   waitForBones: 0
-  rock: {fileID: 3177911330537851451, guid: f9e7c5e6a6e1b9f48985f2b65bb830c6, type: 3}
-  paper: {fileID: 1256589777663328510, guid: 206eb8a03b5eb9c47be2ac7a0ca477c7, type: 3}
-  scissors: {fileID: 5675355268750435255, guid: 25a703341b0d9414ba9f554ba8b00367, type: 3}
-  objSpawnLoc: {fileID: 47167731}
 --- !u!4 &944903280
 Transform:
   m_ObjectHideFlags: 0
@@ -816,6 +853,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &944903281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944903278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ed9be0586729a489cfee9c9296d0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rock: {fileID: 3177911330537851451, guid: f9e7c5e6a6e1b9f48985f2b65bb830c6, type: 3}
+  paper: {fileID: 1256589777663328510, guid: 206eb8a03b5eb9c47be2ac7a0ca477c7, type: 3}
+  scissors: {fileID: 5675355268750435255, guid: 25a703341b0d9414ba9f554ba8b00367, type: 3}
+  spawnLocation: {fileID: 47167732}
 --- !u!1001 &1327898173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -886,7 +939,7 @@ PrefabInstance:
     - target: {fileID: 137619227449585070, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5ba7d209f622bb44e87b47ce27ee27b7, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f92ce6a2e9e04e458f46e6a635b1d62, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
 --- !u!1 &1709559666

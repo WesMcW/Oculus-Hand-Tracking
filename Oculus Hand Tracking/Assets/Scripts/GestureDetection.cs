@@ -19,9 +19,6 @@ public class GestureDetection : MonoBehaviour
     public List<Gesture> gestures;
     public bool waitForBones = true;
 
-    public GameObject rock, paper, scissors;
-    public GameObject objSpawnLoc;
-
     private List<OVRBone> fingerBones;
     private Gesture previousGesture;
 
@@ -59,15 +56,6 @@ public class GestureDetection : MonoBehaviour
             if (hasRecognized && !currentGesture.Equals(previousGesture))
             {
                 Debug.LogWarning("Gesture Found: " + currentGesture.name);
-
-                if (currentGesture.Equals(gestures[0]))
-                    Instantiate(rock, objSpawnLoc.transform);
-
-                else if (currentGesture.Equals(gestures[1]))
-                    Instantiate(paper, objSpawnLoc.transform);
-
-                else if (currentGesture.Equals(gestures[2]))
-                    Instantiate(scissors, objSpawnLoc.transform);
 
                 previousGesture = currentGesture;
                 currentGesture.onRecognized.Invoke();
