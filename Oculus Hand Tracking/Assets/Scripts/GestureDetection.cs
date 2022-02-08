@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 [System.Serializable]
 public struct Gesture
@@ -18,6 +19,8 @@ public class GestureDetection : MonoBehaviour
     public OVRSkeleton skeleton;
     public List<Gesture> gestures;
     public bool waitForBones = true;
+
+    public TextMeshPro debugText;
 
     private List<OVRBone> fingerBones;
     private Gesture previousGesture;
@@ -56,6 +59,7 @@ public class GestureDetection : MonoBehaviour
             if (hasRecognized && !currentGesture.Equals(previousGesture))
             {
                 Debug.LogWarning("Gesture Found: " + currentGesture.name);
+                debugText.text = currentGesture.name;
 
                 previousGesture = currentGesture;
                 currentGesture.onRecognized.Invoke();
