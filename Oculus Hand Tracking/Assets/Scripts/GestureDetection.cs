@@ -61,8 +61,13 @@ public class GestureDetection : MonoBehaviour
                 Debug.LogWarning("Gesture Found: " + currentGesture.name);
                 debugText.text = currentGesture.name;
 
+                if (currentGesture.name == "Ready" && !GameManager.GM.started)
+                    GameManager.GM.RoundStart();
+
                 previousGesture = currentGesture;
-                currentGesture.onRecognized.Invoke();
+
+                if(GameManager.GM.gameState == GameState.Active)
+                    currentGesture.onRecognized.Invoke();
             }
         }
     }
