@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
             GM = this;
     }
 
+    private void Update()
+    {
+        if (gameState == GameState.Complete)
+            opponent.ShowGesture();
+    }
+
     public void RoundStart()
     {
         StartCoroutine("SetRoundState", roundTimer);

@@ -15,10 +15,6 @@ public class OpponentLogic : MonoBehaviour
         {
             PickMove();
         }
-        if (GameManager.GM.gameState == GameState.Complete)
-        {
-            gestureBlocker.SetActive(false);
-        }
     }
 
     public void PickMove()
@@ -49,5 +45,10 @@ public class OpponentLogic : MonoBehaviour
     public void HideGesture()
     {
         gestureBlocker.SetActive(true);
+    }
+
+    public void ShowGesture()
+    {
+        gestureBlocker.SetActive(false);
     }
 }
