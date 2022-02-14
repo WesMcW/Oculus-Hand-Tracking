@@ -7,12 +7,17 @@ public class OpponentLogic : MonoBehaviour
     public Animator anim;
     public List<GameObject> objects;
     public Transform objectSpawn;
+    public GameObject gestureBlocker;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             PickMove();
+        }
+        if (GameManager.GM.gameState == GameState.Complete)
+        {
+            gestureBlocker.SetActive(false);
         }
     }
 
@@ -39,5 +44,10 @@ public class OpponentLogic : MonoBehaviour
     public void SpawnObject(int num)
     {
         Instantiate(objects[num], objectSpawn);
+    }
+
+    public void HideGesture()
+    {
+        gestureBlocker.SetActive(true);
     }
 }

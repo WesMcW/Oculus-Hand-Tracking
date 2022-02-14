@@ -67,7 +67,10 @@ public class GestureDetection : MonoBehaviour
                 previousGesture = currentGesture;
 
                 if(GameManager.GM.gameState == GameState.Active)
+                {
                     currentGesture.onRecognized.Invoke();
+                    GameManager.GM.gameState = GameState.Complete;
+                }
             }
         }
     }

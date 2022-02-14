@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public float roundTimer;
     public bool started = false;
+    public OpponentLogic opponent;
 
     public static GameManager GM;
 
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator SetRoundState(float time)
     {
         gameState = GameState.Ready;
+        opponent.PickMove();
 
         yield return new WaitForSeconds(time);
         gameState = GameState.Active;
