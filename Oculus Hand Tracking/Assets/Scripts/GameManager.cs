@@ -30,16 +30,24 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (gameState == GameState.Complete)
         {
             opponent.ShowGesture();
             gameState = GameState.Ready;
         }
+        */
     }
 
     public void RoundStart()
     {
         StartCoroutine("SetRoundState", roundTimer);
+    }
+
+    public void Reavel()
+    {
+        opponent.ShowGesture();
+        gameState = GameState.Ready;
     }
 
     public IEnumerator SetRoundState(float time)

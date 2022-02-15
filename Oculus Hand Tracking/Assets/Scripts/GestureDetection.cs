@@ -49,7 +49,7 @@ public class GestureDetection : MonoBehaviour
         {
             SaveGesture();
         }
-
+        debugText.text = gestures[0].name;
         if (!waitForBones)
         {
             Gesture currentGesture = Recognize();
@@ -58,8 +58,7 @@ public class GestureDetection : MonoBehaviour
 
             if (hasRecognized && !currentGesture.Equals(previousGesture))
             {
-                Debug.LogWarning("Gesture Found: " + currentGesture.name);
-                debugText.text = currentGesture.name;
+                //Debug.LogWarning("Gesture Found: " + currentGesture.name);
 
                 if (currentGesture.name == "Ready" && !GameManager.GM.started)
                     GameManager.GM.RoundStart();
@@ -69,6 +68,7 @@ public class GestureDetection : MonoBehaviour
                 if(GameManager.GM.gameState == GameState.Active)
                 {
                     currentGesture.onRecognized.Invoke();
+                    GameManager.GM.Reavel();
                     GameManager.GM.gameState = GameState.Complete;
                 }
             }
