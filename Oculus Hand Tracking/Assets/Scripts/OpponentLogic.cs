@@ -8,6 +8,7 @@ public class OpponentLogic : MonoBehaviour
     public List<GameObject> objects;
     public Transform objectSpawn;
     public GameObject gestureBlocker;
+    public int pickedGesture;
 
     void Update()
     {
@@ -34,6 +35,7 @@ public class OpponentLogic : MonoBehaviour
                 anim.SetTrigger("Scissors");
                 break;
         }
+        pickedGesture = moveNum;
         //Debug.LogError(moveNum);
     }
 
@@ -50,5 +52,6 @@ public class OpponentLogic : MonoBehaviour
     public void ShowGesture()
     {
         gestureBlocker.SetActive(false);
+        SpawnObject(pickedGesture);
     }
 }

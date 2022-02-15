@@ -31,7 +31,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (gameState == GameState.Complete)
+        {
             opponent.ShowGesture();
+            gameState = GameState.Ready;
+        }
     }
 
     public void RoundStart()

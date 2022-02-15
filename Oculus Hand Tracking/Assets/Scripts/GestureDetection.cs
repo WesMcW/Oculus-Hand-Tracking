@@ -64,7 +64,7 @@ public class GestureDetection : MonoBehaviour
                 if (currentGesture.name == "Ready" && !GameManager.GM.started)
                     GameManager.GM.RoundStart();
 
-                previousGesture = currentGesture;
+               // previousGesture = currentGesture;
 
                 if(GameManager.GM.gameState == GameState.Active)
                 {
@@ -72,6 +72,7 @@ public class GestureDetection : MonoBehaviour
                     GameManager.GM.gameState = GameState.Complete;
                 }
             }
+            previousGesture = currentGesture;
         }
     }
 
