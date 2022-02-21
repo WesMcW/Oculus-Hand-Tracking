@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         else
             GM = this;
+
+        SaveSystem.Initialize();
     }
 
     private void Update()
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundStart()
     {
+        started = true;
         StartCoroutine("SetRoundState", roundTimer);
     }
 

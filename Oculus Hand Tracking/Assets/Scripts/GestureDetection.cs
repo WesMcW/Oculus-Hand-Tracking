@@ -1,3 +1,4 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,7 +50,17 @@ public class GestureDetection : MonoBehaviour
         {
             SaveGesture();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Save();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Load();
+        }
+
         debugText.text = gestures[0].name;
+
         if (!waitForBones)
         {
             Gesture currentGesture = Recognize();
@@ -65,11 +76,13 @@ public class GestureDetection : MonoBehaviour
 
                // previousGesture = currentGesture;
 
+                if(currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name)
                 if(GameManager.GM.gameState == GameState.Active)
                 {
                     currentGesture.onRecognized.Invoke();
                     GameManager.GM.Reavel();
                     GameManager.GM.gameState = GameState.Complete;
+                    GameManager.GM.started = false;
                 }
             }
             previousGesture = currentGesture;
@@ -120,5 +133,41 @@ public class GestureDetection : MonoBehaviour
             }
         }
         return currentGesture;
+    }
+
+    private void Save()
+    {
+        List<Gesture> g = gestures;
+
+        SaveObject saveObject = new SaveObject
+        {
+            savedGestures = g
+        };
+
+        string json = JsonUtility.ToJson(saveObject);
+
+        SaveSystem.Save(json);
+        Debug.LogWarning("Data saved.");
+    }
+
+    private void Load()
+    {
+        string saveString = SaveSystem.Load();
+
+        if (saveString != null)
+        {
+            SaveObject saveObject = JsonUtility.FromJson<SaveObject>(saveString);
+
+            gestures = saveObject.savedGestures;
+            Debug.LogWarning("Data loaded.");
+
+        } else {
+            Debug.LogError("No Save!");
+        }
+    }
+
+    private class SaveObject
+    {
+        public List<Gesture> savedGestures;
     }
 }
