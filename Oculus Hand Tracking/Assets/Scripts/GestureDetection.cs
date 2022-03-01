@@ -26,6 +26,11 @@ public class GestureDetection : MonoBehaviour
     private List<OVRBone> fingerBones;
     private Gesture previousGesture;
 
+    private void Awake()
+    {
+        Load();
+    }
+
     void Start()
     {
         //fingerBones = new List<OVRBone>(skeleton.Bones);
@@ -52,11 +57,11 @@ public class GestureDetection : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Save();
+            //Save();
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Load();
+            //Load();
         }
 
         debugText.text = gestures[0].name;
@@ -132,6 +137,7 @@ public class GestureDetection : MonoBehaviour
                 currentGesture = g;
             }
         }
+        debugText.text = currentGesture.name;
         return currentGesture;
     }
 
