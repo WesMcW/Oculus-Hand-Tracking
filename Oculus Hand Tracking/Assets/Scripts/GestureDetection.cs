@@ -28,7 +28,7 @@ public class GestureDetection : MonoBehaviour
 
     private void Awake()
     {
-        Load();
+        //Load();
     }
 
     void Start()
@@ -64,7 +64,7 @@ public class GestureDetection : MonoBehaviour
             //Load();
         }
 
-        debugText.text = gestures[0].name;
+        //debugText.text = gestures[0].name;
 
         if (!waitForBones)
         {
