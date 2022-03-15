@@ -151,7 +151,7 @@ public class OVRSkeleton : MonoBehaviour
 		}
 		else if (_skeletonType == SkeletonType.HandLeft || _skeletonType == SkeletonType.HandRight)
 		{
-#if UNITY_EDITOR
+#if UNITY_ANDROID
 			return OVRInput.IsControllerConnected(OVRInput.Controller.Hands);
 #else
 			return true;
@@ -200,8 +200,7 @@ public class OVRSkeleton : MonoBehaviour
 			bone.Id = (OVRSkeleton.BoneId)_skeleton.Bones[i].Id;
 			bone.ParentBoneIndex = _skeleton.Bones[i].ParentBoneIndex;
 
-			Transform trans = bone.Transform ??
-			                  (bone.Transform = new GameObject(BoneLabelFromBoneId(_skeletonType, bone.Id)).transform);
+			Transform trans = bone.Transform ?? (bone.Transform = new GameObject(BoneLabelFromBoneId(_skeletonType, bone.Id)).transform);
 			trans.localPosition = flipX ? _skeleton.Bones[i].Pose.Position.FromFlippedXVector3f() : _skeleton.Bones[i].Pose.Position.FromFlippedZVector3f();
 			trans.localRotation = flipX ? _skeleton.Bones[i].Pose.Orientation.FromFlippedXQuatf() : _skeleton.Bones[i].Pose.Orientation.FromFlippedZQuatf();
 		}
@@ -243,8 +242,7 @@ public class OVRSkeleton : MonoBehaviour
 			bindPoseBone.Id = bone.Id;
 			bindPoseBone.ParentBoneIndex = bone.ParentBoneIndex;
 
-			Transform trans = bindPoseBone.Transform ?? (bindPoseBone.Transform =
-				                  new GameObject(BoneLabelFromBoneId(_skeletonType, bindPoseBone.Id)).transform);
+			Transform trans = bindPoseBone.Transform ?? (bindPoseBone.Transform = new GameObject(BoneLabelFromBoneId(_skeletonType, bindPoseBone.Id)).transform);
 			trans.localPosition = bone.Transform.localPosition;
 			trans.localRotation = bone.Transform.localRotation;
 		}
@@ -328,7 +326,7 @@ public class OVRSkeleton : MonoBehaviour
 
 	private void Update()
 	{
-#if UNITY_EDITOR
+#if UNITY_ANDROID
 		if (ShouldInitialize())
 		{
 			Initialize();

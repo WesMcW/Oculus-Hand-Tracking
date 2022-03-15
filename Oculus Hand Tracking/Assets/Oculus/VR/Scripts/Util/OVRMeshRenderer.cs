@@ -142,7 +142,7 @@ public class OVRMeshRenderer : MonoBehaviour
 
 	private void Update()
 	{
-#if UNITY_EDITOR
+#if UNITY_ANDROID
 		if (ShouldInitialize())
 		{
 			Initialize();
