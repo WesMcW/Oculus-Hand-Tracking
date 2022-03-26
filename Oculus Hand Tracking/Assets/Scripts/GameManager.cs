@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public float roundTimer;
     public bool started = false;
     public OpponentLogic opponent;
+    public int p1Score = 0;
+    public int p2Score = 0;
 
     public static GameManager GM;
 
@@ -62,4 +64,10 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Active;
         StopCoroutine("RoundStart");
     }
+
+    public void CheckOutcome()
+    {
+        //opponent.pickedGesture;
+    }
+
 }
