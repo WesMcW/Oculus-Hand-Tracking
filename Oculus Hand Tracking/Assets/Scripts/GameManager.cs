@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
         gameState = GameState.Active;
+        GestureDetection.gd.currentGesture = new Gesture();
+
         StopCoroutine("RoundStart");
     }
 }

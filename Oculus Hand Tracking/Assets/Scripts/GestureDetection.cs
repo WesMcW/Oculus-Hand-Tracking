@@ -15,6 +15,8 @@ public struct Gesture
 
 public class GestureDetection : MonoBehaviour
 {
+    public static GestureDetection gd;
+
     public float threshold = 0.1f;
 
     public OVRSkeleton skeleton;
@@ -25,10 +27,14 @@ public class GestureDetection : MonoBehaviour
 
     private List<OVRBone> fingerBones;
     private Gesture previousGesture;
+    public Gesture currentGesture;
 
     private void Awake()
     {
-        //Load();
+        if (gd == null)
+            gd = this;
+        else
+            Destroy(this);
     }
 
     void Start()
@@ -68,7 +74,7 @@ public class GestureDetection : MonoBehaviour
 
         if (!waitForBones)
         {
-            Gesture currentGesture = Recognize();
+            currentGesture = Recognize();
 
             bool hasRecognized = !currentGesture.Equals(new Gesture());
 
@@ -79,11 +85,26 @@ public class GestureDetection : MonoBehaviour
                 if (currentGesture.name == "Ready" && !GameManager.GM.started)
                     GameManager.GM.RoundStart();
 
-               // previousGesture = currentGesture;
+                // previousGesture = currentGesture;
 
-                if(currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name)
-                if(GameManager.GM.gameState == GameState.Active)
+                /*
+                if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name)
                 {
+                    if (GameManager.GM.gameState == GameState.Active)
+                    {
+                        currentGesture.onRecognized.Invoke();
+                        GameManager.GM.Reavel();
+                        GameManager.GM.gameState = GameState.Complete;
+                        GameManager.GM.started = false;
+                    }
+                }
+                */
+            }
+
+            if (GameManager.GM.gameState == GameState.Active && hasRecognized)
+            {
+                if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name) { 
+            
                     currentGesture.onRecognized.Invoke();
                     GameManager.GM.Reavel();
                     GameManager.GM.gameState = GameState.Complete;
