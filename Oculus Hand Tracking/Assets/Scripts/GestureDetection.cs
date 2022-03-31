@@ -109,6 +109,7 @@ public class GestureDetection : MonoBehaviour
                     GameManager.GM.Reavel();
                     GameManager.GM.gameState = GameState.Complete;
                     GameManager.GM.started = false;
+                    //Send gesture index to GM for round outcome
                 }
             }
             previousGesture = currentGesture;
