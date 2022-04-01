@@ -107,6 +107,7 @@ public class GestureDetection : MonoBehaviour
             
                     currentGesture.onRecognized.Invoke();
                     GameManager.GM.Reavel();
+                    GameManager.GM.CheckOutcome(currentGesture.name);
                     GameManager.GM.gameState = GameState.Complete;
                     GameManager.GM.started = false;
                     //Send gesture index to GM for round outcome
