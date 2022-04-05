@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 5965355253774409878}
   - component: {fileID: 7306784087370690355}
   - component: {fileID: 4792426093177215993}
-  - component: {fileID: 6449966465789180463}
+  - component: {fileID: 2577793663052127261}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 6449966465789180460}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4544159730627921880}
   m_RootOrder: 0
@@ -102,7 +102,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6449966465789180460}
-  m_Mesh: {fileID: -4664382578460312087, guid: 18d8c6e0ce619ab42b76ef141022601e, type: 3}
+  m_Mesh: {fileID: -4664382578460312087, guid: 0a75e44ab45265d40894fd11a339eafa, type: 3}
 --- !u!23 &4792426093177215993
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -122,8 +122,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3399425698323082046, guid: 18d8c6e0ce619ab42b76ef141022601e, type: 3}
-  - {fileID: 7022173166102305024, guid: 18d8c6e0ce619ab42b76ef141022601e, type: 3}
+  - {fileID: 3399425698323082046, guid: 0a75e44ab45265d40894fd11a339eafa, type: 3}
+  - {fileID: 7022173166102305024, guid: 0a75e44ab45265d40894fd11a339eafa, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,7 +145,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6449966465789180463
+--- !u!64 &2577793663052127261
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,4 +158,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -4664382578460312087, guid: ce241c59d433d3b40ba715e7dcfe4272, type: 3}
+  m_Mesh: {fileID: -4664382578460312087, guid: 0a75e44ab45265d40894fd11a339eafa, type: 3}
