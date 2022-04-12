@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GestureObject : MonoBehaviour
 {
-    public bool lost;
     public GameObject unbroken;
     public GameObject broken;
 

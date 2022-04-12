@@ -101,6 +101,7 @@ public class GestureDetection : MonoBehaviour
                 */
             }
 
+            // Wait before searching
             if (GameManager.GM.gameState == GameState.Active && hasRecognized)
             {
                 if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name) {
