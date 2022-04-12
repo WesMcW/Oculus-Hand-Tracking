@@ -103,8 +103,8 @@ public class GestureDetection : MonoBehaviour
 
             if (GameManager.GM.gameState == GameState.Active && hasRecognized)
             {
-                if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name) { 
-            
+                if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name) {
+
                     currentGesture.onRecognized.Invoke();
                     GameManager.GM.Reavel();
                     GameManager.GM.CheckOutcome(currentGesture.name);

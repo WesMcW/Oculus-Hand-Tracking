@@ -8,6 +8,8 @@ public class OpponentLogic : MonoBehaviour
     public List<GameObject> objects;
     public Transform objectSpawn;
     public GameObject gestureBlocker;
+
+    public GameObject chosenObj;
     public int pickedGesture;
 
     void Update()
@@ -41,7 +43,7 @@ public class OpponentLogic : MonoBehaviour
 
     public void SpawnObject(int num)
     {
-        Instantiate(objects[num], objectSpawn);
+        chosenObj = Instantiate(objects[num], objectSpawn);
     }
 
     public void HideGesture()

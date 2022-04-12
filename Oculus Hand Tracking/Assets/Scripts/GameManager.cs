@@ -17,8 +17,11 @@ public class GameManager : MonoBehaviour
     public float roundTimer;
     public bool started = false;
     public OpponentLogic opponent;
+    public ObjectSpawner playerObj;
     public int p1Score = 0;
     public int p2Score = 0;
+    public TextMeshPro p1Text;
+    public TextMeshPro p2Text;
 
     public static GameManager GM;
 
@@ -34,13 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (gameState == GameState.Complete)
-        {
-            opponent.ShowGesture();
-            gameState = GameState.Ready;
-        }
-        */
+        p1Text.text = p1Score.ToString();
+        p2Text.text = p2Score.ToString();
     }
 
     public void RoundStart()
@@ -87,29 +85,58 @@ public class GameManager : MonoBehaviour
 
         // Player chooses rock
         if (playerChoice == 0 && opponentChoice == 0)
-            Debug.LogError("DRAW");
+        {
+            playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
+            opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
+            Debug.LogWarning("DRAW");
+        }
         else if (playerChoice == 0 && opponentChoice == 1)
+        {
+            playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
             p2Score++;
+        }
         else if (playerChoice == 0 && opponentChoice == 2)
+        {
+            opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
             p1Score++;
+        }
 
         // Player chooses paper
         if (playerChoice == 1 && opponentChoice == 1)
-            Debug.LogError("DRAW");
+        {
+            playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
+            opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
+            Debug.LogWarning("DRAW");
+        }
         else if (playerChoice == 1 && opponentChoice == 2)
+        {
+            playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
             p2Score++;
+        }
         else if (playerChoice == 1 && opponentChoice == 0)
+        {
+            opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
             p1Score++;
+        }
 
         // Player chooses scissors
         if (playerChoice == 2 && opponentChoice == 2)
-            Debug.LogError("DRAW");
+        {
+            playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
+            opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
+            Debug.LogWarning("DRAW");
+        }
         else if (playerChoice == 2 && opponentChoice == 0)
+        {
+            playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
             p2Score++;
+        }
         else if (playerChoice == 2 && opponentChoice == 1)
+        {
+            opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
             p1Score++;
+        }
 
-        Debug.LogError("P1: " + p1Score + "P2: " + p2Score);
+        Debug.LogWarning("P1: " + p1Score + "P2: " + p2Score);
     }
-
 }

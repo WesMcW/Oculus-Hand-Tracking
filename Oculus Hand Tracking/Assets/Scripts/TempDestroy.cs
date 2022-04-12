@@ -16,6 +16,7 @@ public class TempDestroy : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         Destroy(this.gameObject);
+        //gameObject.SetActive(false);
     }
 
 }

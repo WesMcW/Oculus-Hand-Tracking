@@ -8,18 +8,20 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject rock, paper, scissors;
     public Transform spawnLocation;
 
+    public GameObject chosenObj;
+
     public void SpawnRock()
     {
-        Instantiate(rock, spawnLocation);
+        chosenObj = Instantiate(rock, spawnLocation);
     }
 
     public void SpawnPaper()
     {
-        Instantiate(paper, spawnLocation);
+        chosenObj = Instantiate(paper, spawnLocation);
     }
 
     public void SpawnScissors()
     {
-        Instantiate(scissors, spawnLocation);
+        chosenObj = Instantiate(scissors, spawnLocation);
     }
 }
