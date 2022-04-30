@@ -183,12 +183,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 178561825926876445}
     m_Modifications:
+    - target: {fileID: 7422574157935930491, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574157935930491, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574158007639805, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574158007639805, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574158296810173, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574158296810173, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574158907870817, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422574158907870817, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7765100824743499009, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
       propertyPath: m_Name
       value: Broken Paper
       objectReference: {fileID: 0}
     - target: {fileID: 7765100824743499009, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765100824743499009, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765100824743499009, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7765100824743499010, guid: 9ab7f8b736dc9784481b99c30da24284, type: 3}
