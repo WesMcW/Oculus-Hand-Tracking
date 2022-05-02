@@ -43,7 +43,7 @@ public class GestureDetection : MonoBehaviour
         //Debug.LogError(fingerBones.Count);
         StartCoroutine("SetBones");
         previousGesture = new Gesture();
-        waitForBones = true;
+        //waitForBones = true;
     }
 
     public IEnumerator SetBones()
@@ -70,8 +70,6 @@ public class GestureDetection : MonoBehaviour
             //Load();
         }
 
-        //debugText.text = gestures[0].name;
-
         if (!waitForBones)
         {
             currentGesture = Recognize();
@@ -80,28 +78,10 @@ public class GestureDetection : MonoBehaviour
 
             if (hasRecognized && !currentGesture.Equals(previousGesture))
             {
-                //Debug.LogWarning("Gesture Found: " + currentGesture.name);
-
                 if (currentGesture.name == "Ready" && !GameManager.GM.started)
                     GameManager.GM.RoundStart();
-
-                // previousGesture = currentGesture;
-
-                /*
-                if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name)
-                {
-                    if (GameManager.GM.gameState == GameState.Active)
-                    {
-                        currentGesture.onRecognized.Invoke();
-                        GameManager.GM.Reavel();
-                        GameManager.GM.gameState = GameState.Complete;
-                        GameManager.GM.started = false;
-                    }
-                }
-                */
             }
 
-            // Wait before searching
             if (GameManager.GM.gameState == GameState.Active && hasRecognized)
             {
                 if (currentGesture.name == gestures[0].name || currentGesture.name == gestures[1].name || currentGesture.name == gestures[2].name) {
@@ -161,7 +141,7 @@ public class GestureDetection : MonoBehaviour
                 currentGesture = g;
             }
         }
-        //debugText.text = currentGesture.name;
+        debugText.text = currentGesture.name;
         return currentGesture;
     }
 
