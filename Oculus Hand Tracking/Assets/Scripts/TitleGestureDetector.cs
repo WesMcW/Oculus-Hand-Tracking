@@ -35,7 +35,7 @@ public class TitleGestureDetector : MonoBehaviour
     {
         StartCoroutine("SetBones");
         previousGesture = new Gesture();
-        waitForBones = true;
+        //waitForBones = true;
     }
 
     public IEnumerator SetBones()

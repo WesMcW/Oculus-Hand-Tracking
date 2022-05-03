@@ -7,7 +7,8 @@ public enum GameState
 {
     Ready,
     Active,
-    Complete
+    Complete,
+    Finished
 };
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
     public TextMeshPro p1Text;
     public TextMeshPro p2Text;
 
+    public bool p1Win = false;
+    public bool p2Win = false;
+
     public static GameManager GM;
 
     private void Awake()
@@ -33,6 +37,12 @@ public class GameManager : MonoBehaviour
             GM = this;
 
         SaveSystem.Initialize();
+    }
+
+    private void Start()
+    {
+        p1Win = false;
+        p2Win = false;
     }
 
     private void Update()
@@ -63,6 +73,24 @@ public class GameManager : MonoBehaviour
         GestureDetection.gd.currentGesture = new Gesture();
 
         StopCoroutine("RoundStart");
+    }
+
+    public void CheckForEnd(int p1, int p2)
+    {
+        if (p1 == 3)
+        {
+            p1Win = true;
+            gameState = GameState.Finished;
+            p1Text.text = "WINNER";
+            p2Text.text = "LOSER";
+        }
+        else if (p2 == 3)
+        {
+            p2Win = true;
+            gameState = GameState.Finished;
+            p2Text.text = "WINNER";
+            p1Text.text = "LOSER";
+        }
     }
 
     public void CheckOutcome(string playerGesture)
@@ -143,6 +171,7 @@ public class GameManager : MonoBehaviour
             p1Text.text = p1Score.ToString();
         }
 
+        CheckForEnd(p1Score, p2Score);
         //Debug.LogWarning("P1: " + p1Score + "P2: " + p2Score);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct Gesture
@@ -78,8 +79,11 @@ public class GestureDetection : MonoBehaviour
 
             if (hasRecognized && !currentGesture.Equals(previousGesture))
             {
-                if (currentGesture.name == "Ready" && !GameManager.GM.started)
+                if (currentGesture.name == "Ready" && !GameManager.GM.started && GameManager.GM.gameState != GameState.Finished)
                     GameManager.GM.RoundStart();
+
+                if (currentGesture.name == "Ready" && GameManager.GM.gameState == GameState.Finished)
+                    SceneManager.LoadScene(0);
             }
 
             if (GameManager.GM.gameState == GameState.Active && hasRecognized)
@@ -91,7 +95,8 @@ public class GestureDetection : MonoBehaviour
                     GameManager.GM.CheckOutcome(currentGesture.name);
                     GameManager.GM.gameState = GameState.Complete;
                     GameManager.GM.started = false;
-                    //Send gesture index to GM for round outcome
+                    if(GameManager.GM.p1Win || GameManager.GM.p2Win)
+                        GameManager.GM.gameState = GameState.Finished;
                 }
             }
             previousGesture = currentGesture;

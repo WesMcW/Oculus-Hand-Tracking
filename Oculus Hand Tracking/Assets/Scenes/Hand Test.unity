@@ -11045,7 +11045,7 @@ MonoBehaviour:
     onRecognized:
       m_PersistentCalls:
         m_Calls: []
-  waitForBones: 1
+  waitForBones: 0
   debugText: {fileID: 1918150501}
   currentGesture:
     name: 
@@ -15201,7 +15201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  roundTimer: 5
+  roundTimer: 4
   started: 0
   opponent: {fileID: 1592554774}
   playerObj: {fileID: 944903281}
@@ -15209,6 +15209,8 @@ MonoBehaviour:
   p2Score: 0
   p1Text: {fileID: 1375176573}
   p2Text: {fileID: 1475597948}
+  p1Win: 0
+  p2Win: 0
 --- !u!4 &1436912464
 Transform:
   m_ObjectHideFlags: 0
@@ -19126,7 +19128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1918150501
 MonoBehaviour:
   m_ObjectHideFlags: 0
