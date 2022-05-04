@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public TextMeshPro p1Text;
     public TextMeshPro p2Text;
 
+    public Animator p1Beans;
+    public Animator p2Beans;
+
     public bool p1Win = false;
     public bool p2Win = false;
 
@@ -83,6 +86,8 @@ public class GameManager : MonoBehaviour
             gameState = GameState.Finished;
             p1Text.text = "WINNER";
             p2Text.text = "LOSER";
+            p1Beans.SetTrigger("Cheer");
+            GetComponent<AudioSource>().Play();
         }
         else if (p2 == 3)
         {
@@ -90,6 +95,8 @@ public class GameManager : MonoBehaviour
             gameState = GameState.Finished;
             p2Text.text = "WINNER";
             p1Text.text = "LOSER";
+            p2Beans.SetTrigger("Cheer");
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -123,12 +130,14 @@ public class GameManager : MonoBehaviour
             playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
             p2Score++;
             p2Text.text = p2Score.ToString();
+            p2Beans.SetTrigger("Jump");
         }
         else if (playerChoice == 0 && opponentChoice == 2)
         {
             opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
             p1Score++;
             p1Text.text = p1Score.ToString();
+            p1Beans.SetTrigger("Jump");
         }
 
         // Player chooses paper
@@ -143,12 +152,14 @@ public class GameManager : MonoBehaviour
             playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
             p2Score++;
             p2Text.text = p2Score.ToString();
+            p2Beans.SetTrigger("Jump");
         }
         else if (playerChoice == 1 && opponentChoice == 0)
         {
             opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
             p1Score++;
             p1Text.text = p1Score.ToString();
+            p1Beans.SetTrigger("Jump");
         }
 
         // Player chooses scissors
@@ -163,12 +174,14 @@ public class GameManager : MonoBehaviour
             playerObj.chosenObj.GetComponent<GestureObject>().BreakObj();
             p2Score++;
             p2Text.text = p2Score.ToString();
+            p2Beans.SetTrigger("Jump");
         }
         else if (playerChoice == 2 && opponentChoice == 1)
         {
             opponent.chosenObj.GetComponent<GestureObject>().BreakObj();
             p1Score++;
             p1Text.text = p1Score.ToString();
+            p1Beans.SetTrigger("Jump");
         }
 
         CheckForEnd(p1Score, p2Score);

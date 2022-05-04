@@ -146,7 +146,7 @@ public class GestureDetection : MonoBehaviour
                 currentGesture = g;
             }
         }
-        debugText.text = currentGesture.name;
+        //debugText.text = currentGesture.name;
         return currentGesture;
     }
 

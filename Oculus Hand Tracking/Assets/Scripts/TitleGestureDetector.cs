@@ -19,6 +19,8 @@ public class TitleGestureDetector : MonoBehaviour
     private Gesture previousGesture;
     public Gesture currentGesture;
 
+    public Tutorial t;
+
     public bool usedRock = false;
     public bool usedPaper = false;
     public bool usedScissors = false;
@@ -66,18 +68,21 @@ public class TitleGestureDetector : MonoBehaviour
                 if (currentGesture.name == gestures[0].name && !usedRock)
                 {
                     usedRock = true;
+                    t.rockComplete = true;
                     currentGesture.onRecognized.Invoke();
                 }
 
                 else if (currentGesture.name == gestures[1].name && !usedPaper)
                 {
                     usedPaper = true;
+                    t.paperComplete = true;
                     currentGesture.onRecognized.Invoke();
                 }
 
                 else if (currentGesture.name == gestures[2].name && !usedScissors)
                 {
                     usedScissors = true;
+                    t.scissorComplete = true;
                     currentGesture.onRecognized.Invoke();
                 }
             }
